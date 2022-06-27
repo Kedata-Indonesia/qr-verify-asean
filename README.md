@@ -1,6 +1,6 @@
-# G20 Universal Verifier
+# ASEAN Universal Verifier
 
-This repo contains the source code of universal verifier for vaccine certificate issued by G20 Countries.
+This repo contains the source code of universal verifier for vaccine certificate issued by ASEAN Countries.
 
 ## Verification status for each country
 
