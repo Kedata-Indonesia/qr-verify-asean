@@ -1,0 +1,30 @@
+.custom-button {
+  border-radius: 12px;
+  color: white;
+  border: none;
+  padding: 1.3rem 3rem;
+  margin-top: 1rem;
+}
+.orange-btn {
+  background-color: #f88213;
+  box-shadow: 0px 12px 24px rgba(252, 131, 20, 0.25);
+}
+.green-btn {
+  background: transparent linear-gradient(90deg, #2cd889 0%, #4ca07a 100%) 0% 0%
+    no-repeat padding-box;
+}
+
+.blue-btn {
+  background: transparent linear-gradient(90deg, #59bcf9 0%, #4e67d1 100%) 0% 0%
+    no-repeat padding-box;
+}
+
+.yellow-btn {
+  background: transparent linear-gradient(91deg, #fdbd22 0%, #de9d00 100%) 0% 0%
+    no-repeat padding-box;
+}
+
+.purple-btn {
+  background: transparent linear-gradient(91deg, #8da2ff 0%, #4e67d1 100%) 0% 0%
+    no-repeat padding-box;
+}
