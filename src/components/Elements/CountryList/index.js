@@ -18,16 +18,16 @@ const country = [
   { id: "lao", image: laoFlag, label: "Laos", disabled: true },
   { id: "mys", image: mysFlag, label: "Malaysia", disabled: false },
   { id: "mmr", image: mmrFlag, label: "Myanmar", disabled: false },
-  { id: "phl", image: phlFlag, label: "Philippines", disabled: false },
-  { id: "sgp", image: sgpFlag, label: "Singapore", disabled: false },
+  { id: "phl", image: phlFlag, label: "Philippines", disabled: true },
+  { id: "sgp", image: sgpFlag, label: "Singapore", disabled: true },
   { id: "tha", image: thaFlag, label: "Thailand", disabled: false },
-  { id: "vnm", image: vnmFlag, label: "Vietnam", disabled: false },
+  { id: "vnm", image: vnmFlag, label: "Vietnam", disabled: true },
 ];
 
 const CountryList = ({ keyword, handleChange }) => {
   if (!keyword) {
     return country.map(({ id, image, label, disabled }) => (
-      <div key={id} className={styles.box}>
+      <div key={id} className={disabled ? styles.boxDisabled : styles.box}>
         <label className={styles.label} htmlFor={id}>
           <img src={image} alt={label} className="mr-3" />
           {label}
@@ -49,7 +49,7 @@ const CountryList = ({ keyword, handleChange }) => {
         item.label.toLowerCase().includes(keyword.toLowerCase())
       )
       .map(({ id, image, label, disabled }) => (
-        <div key={id} className={styles.box}>
+        <div key={id} className={disabled ? styles.boxDisabled : styles.box}>
           <label className={styles.label} htmlFor={id}>
             <img src={image} alt={label} className="mr-3" />
             {label}
