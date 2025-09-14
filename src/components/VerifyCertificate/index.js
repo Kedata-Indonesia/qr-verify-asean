@@ -57,6 +57,11 @@ export const VerifyCertificate = () => {
     }
   };
   const handleScan = (data) => {
+    console.log('QR Scan Result:', data);
+    console.log('QR Data Type:', typeof data);
+    console.log('QR Data Length:', data ? data.length : 'null');
+    console.log('Country Selected:', country);
+
     if (data) {
       if (
         country === "vietnam" ||
@@ -69,13 +74,21 @@ export const VerifyCertificate = () => {
         setResult(data);
       } else {
         // Indonesia & India
+        console.log('Processing Indonesia/India ZIP format...');
         const zip = new JSZip();
         zip
           .loadAsync(data)
-          .then((res) => res.files[CERTIFICATE_FILE].async("text"))
-          .then((res) => setResult(res))
+          .then((res) => {
+            console.log('ZIP loaded successfully, files:', Object.keys(res.files));
+            return res.files[CERTIFICATE_FILE].async("text");
+          })
+          .then((res) => {
+            console.log('Certificate JSON extracted:', res.substring(0, 200) + '...');
+            setResult(res);
+          })
           .catch((err) => {
-            console.log(err);
+            console.error('ZIP processing error:', err);
+            console.log('Falling back to raw data');
             setResult(data);
           });
       }
